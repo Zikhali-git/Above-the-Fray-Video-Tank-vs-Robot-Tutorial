@@ -41,11 +41,11 @@ public class EnemyScript : MonoBehaviour
     private void FireLaser()
     {
         // Randomize Shooting
-        int rand = Random.Range(0, 560);
+        int rand = Random.Range(0, 1560);
 
-        if(rand > 557)
+        if(rand > 1557)
         {
-            if(rand == 558)
+            if(rand == 1558)
             {
                 guns = rightGun.transform;
             } else

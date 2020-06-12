@@ -4,6 +4,32 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    private bool isRightPressed = false;
+    private bool isLeftPressed = false;
+    public float moveSpeed = 5f;
+    Vector3 pos;
+
+    private void Update()
+    {
+        isRightPressed = Input.GetKey(KeyCode.RightArrow);
+        isLeftPressed = Input.GetKey(KeyCode.LeftArrow);
+    }
+
+    private void FixedUpdate()
+    {
+        pos = transform.position;
+        if (isRightPressed)
+        {
+            pos.x += moveSpeed * Time.deltaTime;
+            transform.position = pos;
+        }
+        if (isLeftPressed)
+        {
+            pos.x -= moveSpeed * Time.deltaTime;
+            transform.position = pos;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Laser")
